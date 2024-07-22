@@ -1,0 +1,260 @@
+/* Importação de fonte */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1;
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: var(--green-200);
+}
+
+:root {
+  /* Cores Primárias */
+  --green-200: hsl(148, 38%, 91%);
+  --green-600: hsl(169, 82%, 27%);
+  --red: hsl(0, 66%, 54%);
+
+  /* Cores Neutras */
+  --white: hsl(0, 0%, 100%);
+  --grey-500: hsl(186, 15%, 59%);
+  --grey-900: hsl(187, 24%, 22%);
+}
+
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main form {
+  background-color: var(--white);
+  border-radius: 15px;
+  padding: 2em;
+}
+
+main form h1 {
+  font-weight: 700;
+  font-size: 1.5em;
+  color: var(--grey-900);
+}
+
+label {
+  font-size: 0.8em;
+  font-weight: 400;
+  color: var(--grey-900);
+}
+
+.border {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.border input,
+.check-content input {
+  margin: 0 0.4em 0 0;
+}
+  
+.border, input, textarea {
+  border-radius: 6px;
+  padding: .5em .7em;
+  margin-top: 0.5em;
+}
+
+.type-content .border {
+    padding: .8em .7em;
+}
+
+textarea {
+  min-width: 100%;
+  resize: none;
+}
+
+.error {
+  color: var(--red);
+  font-size: 0.8em;
+  margin-top: 0.6em;
+  margin-bottom: .9em;
+  opacity: 0;
+}
+
+button {
+  background-color: var(--green-600);
+  color: var(--white);
+  width: 100%;
+  border-radius: 4px;
+  padding: 1em 0;
+  cursor: pointer;
+}
+
+.check-content div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.check-content label,
+.type-content label,
+input {
+    cursor: pointer;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: .5em;
+    position: relative;
+}
+
+.circle img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 1;
+}
+
+.borderNormal {
+    transition: all .3s ease;
+    border: 0.5px solid var(--grey-500);
+}
+
+.borderNormal:hover {
+    border: 1px solid var(--green-600);
+}
+
+.borderError {
+    border: 0.5px solid var(--red);
+}
+
+.greenBorder {
+    border: 1px solid var(--green-600);
+}
+
+@media (max-width: 375px) {
+  body {
+    padding: 0 1em;
+  }
+
+  main {
+    padding: 2em 0;
+    height: 100%;
+  }
+
+  textarea {
+    min-height: 200px;
+  }
+
+  .inputBig input {
+    width: 100%;
+  }
+
+  main form .space {
+    margin-top: 0.5em;
+  }
+}
+
+@media (min-width: 375px) {
+  main {
+    height: 100vh;
+  }
+
+  main form {
+    max-width: 600px;
+  }
+
+  h1 {
+    margin-bottom: 1.5em;
+  }
+
+  .name-container, .options {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .email-content input {
+    width: 100%;
+  }
+
+  .name-container div,
+  .options div {
+    width: 50%;
+  }
+
+  .name-container div input,
+  .options div {
+    width: 100%;
+  }
+
+  .first-name-content,
+  .general-enquiry-content {
+    margin-right: 0.4em;
+  }
+
+  .second-name-content,
+  .support-request-content {
+    margin-left: 0.4em;
+  }
+
+  textarea {
+    min-height: 80px;
+  }
+
+  .check-content {
+    padding: 1em 0;
+  }
+}
+
+span {
+    color: var(--green-600);
+}
+
+.message-sent {
+  top: 24px;
+  position: absolute;
+  background-color: var(--grey-900);
+  padding: 1.5em;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.message-sent img {
+  margin-right: 0.7em;
+}
+
+.message-sent p:nth-child(1) {
+  font-weight: 700;
+  font-size: 1em;
+  color: var(--white);
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.message-sent p:nth-child(2) {
+  font-weight: 100;
+  font-size: 0.9em;
+  color: var(--green-200);
+}
+
+.greenBg {
+  background-color: var(--green-200);
+}

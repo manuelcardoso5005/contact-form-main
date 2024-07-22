@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/script.js"></script>
+  <title>Frontend Mentor | Contact form</title>
+</head>
+<body>
+  <main>
+    <form action="">
+      <h1>Contact Us</h1>
+      <div class="form-control name-container">
+        <div class="first-name-content name-content inputBig space">
+          <label for="first-name">First Name <span>*</span></label>
+          <input type="text" name="first-name" id="first-name" class="borderNormal">
+          <p class="first-name-error error">This field is required</p>
+        </div>
+        <div class="second-name-content name-content inputBig space">
+          <label for="second-name">Second Name <span>*</span></label>
+          <input type="text" name="second-name" id="second-name" class="borderNormal">
+          <p class="second-name-error error">This field is required</p>
+        </div>
+      </div>
+      <div class="form-control email-content inputBig space">
+        <label for="email-address">Email Address <span>*</span></label>
+        <input type="email" name="email-address" id="email-address" class="borderNormal">
+        <p class="email-error error">Please enter a valid email address</p>
+      </div>
+      <div class="form-control type-content space">
+        <label for="query-type">Query Type <span>*</span></label>
+        <div class="options">
+          <div class="general-enquiry-content border borderNormal">
+            <p class="circle"><img src="assets/images/icon-radio.png" alt="" id="general-enquiry"></p>
+            <label for="general-enquiry">General Enquiry</label>
+          </div>
+          <div class="support-request-content border borderNormal">
+            <p class="circle"><img src="assets/images/icon-radio.png" alt="" id="support-request"></p>
+            <label for="support-request">Support Request</label>
+          </div>
+        </div>
+        <p class="typeError error">Please select a query type</p>
+      </div>
+      <div class="form-control msg-content space">
+        <label for="msg">Message <span>*</span></label>
+        <textarea name="message" id="msg" class="borderNormal"></textarea>
+        <p class="error">This field is required</p>
+      </div>
+      <div class="form-control check-content space">
+        <div>
+          <input type="checkbox" name="consent" id="checkbtn" value="consent">
+          <label for="checkbtn">I consent to being contacted by the team <span>*</span></label>
+        </div>
+        <p class="error">To submit this form, please consent to being contacted</p>
+      </div>
+      <div class="form-control submit-content space">
+        <button class="submitBtn" type="submit">Submit</button>
+      </div>
+    </form>
+    <div class="message-sent">
+      <p><img src="assets/images/icon-success-check.svg" alt=""> Message Sent!</p>
+      <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </div>
+  </main>
+</body>
+</html>
