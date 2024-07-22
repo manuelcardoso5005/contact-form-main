@@ -76,18 +76,18 @@ $generalEnquiry.addEventListener('click', () => {
     $generalEnquiryImg.src = "assets/images/icon-radio-selected.svg";
     $supportRequestImg.src = "assets/images/icon-radio.png";
     changeBackground($generalEnquiry, $supportRequest);
-    typeStyleSelect ();
+    typeStyleSelect();
 });
 
 $supportRequest.addEventListener('click', () => {
     $supportRequestImg.src = "assets/images/icon-radio-selected.svg";
     $generalEnquiryImg.src = "assets/images/icon-radio.png";
     changeBackground($supportRequest, $generalEnquiry);
-    typeStyleSelect ();
+    typeStyleSelect();
 });
 
-function typeStyleSelect () {
-    if ($generalEnquiryImg.src != $supportRequestImg.src) {
+function typeStyleSelect() {
+    if ($generalEnquiryImg.src !== $supportRequestImg.src) {
         validateTypeStyle($generalEnquiry, $supportRequest, $errorType, '.5px solid var(--grey-500)', '0');
     }
 }
@@ -108,32 +108,75 @@ function validateTypeStyle(element1, element2, error, style, opacity) {
     element2.style.border = style;
 }
 
+const $msg = document.querySelector('#msg');
+const $msgError = document.querySelector('.msgError');
+
+function validateMessageStyle(element, error, style, opacity) {
+    error.style.opacity = opacity;
+    element.style.border = style;
+}
+
+function msgValid() {
+    if ($msg.value.trim() === '') {
+        validateMessageStyle($msg, $msgError, '.5px solid var(--red)', '1');
+        return false;
+    } else {
+        validateMessageStyle($msg, $msgError, '.5px solid var(--grey-500)', '0');
+        return true;
+    }
+}
+
+const $checkbtn = document.querySelector('#checkbtn');
+const $checkError = document.querySelector('.checkError');
+
+function validCheckbox() {
+    if ($checkbtn.checked) {
+        $checkError.style.opacity = '0';
+        return true;
+    } else {
+        $checkError.style.opacity = '1';
+        return false;
+    }
+}
+
+$checkbtn.addEventListener('change', () => {
+    validCheckbox();
+});
+
+const $messageSent = document.querySelector('.message-sent');
+
 $submitBtn.addEventListener('click', (event) => {
-    event.preventDefault(); 
-    
+    event.preventDefault();
+
     let isValidFirstName = validateName($firstName.value, $firstNameError, $firstName);
     let isValidSecondName = validateName($secondName.value, $secondNameError, $secondName);
     let isValidEmail = validateEmail($email.value, $emailError, $email);
     let isValidType = validateType();
+    let isValidMsg = msgValid();
+    let isValidCheckbox = validCheckbox();
 
-    if (!isValidFirstName) {
-        console.log('Nome inválido');
+    if (!isValidFirstName || !isValidSecondName || !isValidEmail || !isValidType || !isValidMsg || !isValidCheckbox) {
         return;
     }
 
-    if (!isValidSecondName) {
-        console.log('Nome inválido');
-        return;
-    }
+    $messageSent.style.display = 'block';
 
-    if (!isValidEmail) {
-        console.log('Nome inválido');
-        return;
-    }
+    setTimeout(() => {
+        $messageSent.style.display = 'none';
+    }, 3000);
 
-    if (!isValidType) {
-        console.log('Nome inválido');
-        return;
-    }
-    console.log('Nome válido');
+    // Limpar os campos e remover a seleção de rádio
+    $firstName.value = '';
+    $secondName.value = '';
+    $email.value = '';
+    $msg.value = '';
+    $checkbtn.checked = false;
+
+    // Resetar a imagem dos botões de seleção
+    $supportRequestImg.src = "assets/images/icon-radio.png";
+    $generalEnquiryImg.src = "assets/images/icon-radio.png";
+
+    // Remover a classe greenBg dos elementos
+    $generalEnquiry.classList.remove('greenBg');
+    $supportRequest.classList.remove('greenBg');
 });
